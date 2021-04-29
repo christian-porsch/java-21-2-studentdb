@@ -14,7 +14,7 @@ class StudentTest {
     @DisplayName("A students name can be set")
     public void testSetAndGetName(){
         // Given
-        Student student = new Student("Jane Doe", "42");
+        Student student = new BiologyStudent("Jane Doe", "42", "8","tweezers");
 
         // When
         student.setName("John Doe");
@@ -28,7 +28,7 @@ class StudentTest {
     @DisplayName("A students id can be set")
     public void setAndGetId(){
         // Given
-        Student student = new Student("Jane Doe", "42");
+        Student student = new BiologyStudent("Jane Doe", "42", "8","tweezers");
 
         // When
         student.setId("113");
@@ -50,8 +50,8 @@ class StudentTest {
 
     private static Arguments[] provideTestEqualsArguments(){
         return new Arguments[]{
-            Arguments.of(new Student("Jane", "42"), new Student("Jane","42"), true),
-            Arguments.of(new Student("Jane", "42"), new Student("John","42"), false),
+            Arguments.of(new BiologyStudent("Jane Doe", "42", "8","tweezers"), new BiologyStudent("Jane Doe", "42", "8","tweezers"), true),
+            Arguments.of(new BiologyStudent("Jane Doe", "42", "8","tweezers"), new BiologyStudent("John","42", "5","Observation glas"), false),
         };
     }
 
@@ -59,7 +59,7 @@ class StudentTest {
     @DisplayName("toString() returns a formatted student")
     public void testToString(){
         // Given
-        Student student = new Student("Jane", "42");
+        Student student = new BiologyStudent("Jane Doe", "42", "8","tweezers");
 
         // When
         String actual = student.toString();
@@ -73,8 +73,8 @@ class StudentTest {
     @DisplayName("Students with same name and id have the same hash code")
     public void testHashCode(){
         // Given
-        Student studentA = new Student("Jane", "42");
-        Student studentB = new Student("Jane", "42");
+        Student studentA = new BiologyStudent("Jane Doe", "42", "8","tweezers");
+        Student studentB = new BiologyStudent("Jane Doe", "42", "8","tweezers");
 
         // When
         boolean actual = studentA.hashCode() == studentB.hashCode();

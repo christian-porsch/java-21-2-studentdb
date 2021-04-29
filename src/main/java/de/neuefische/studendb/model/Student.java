@@ -2,14 +2,16 @@ package de.neuefische.studendb.model;
 
 import java.util.Objects;
 
-public class Student {
+public abstract class Student {
 
-    private String name;
-    private String id;
+    protected String name;
+    protected String id;
+    protected String numOfModuls;
 
-    public Student(String name, String id){
+    public Student(String name, String id, String numOfModuls){
         this.name = name;
         this.id = id;
+        this.numOfModuls = numOfModuls;
     }
 
     public void setName(String name) {
@@ -27,6 +29,9 @@ public class Student {
     public void setId(String id) {
         this.id = id;
     }
+
+    public abstract String anzahlModule(int numOfModuls);
+
 
     @Override
     public boolean equals(Object o) {
